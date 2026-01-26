@@ -6,7 +6,7 @@ export default function ContactCTA() {
     <section className="py-12 bg-slate-900 text-white border-t border-slate-800 relative overflow-hidden">
       <div className="absolute inset-0 opacity-10">
         <Image
-          src="/images/cta-bg.jpg"
+          src="/images/contact-side.jpg"
           alt="خلفية اتصل بنا"
           fill
           className="object-cover"
