@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { articles } from '../../app/data/blogData'
+import { articles } from '../../data/blogData'
 
 export default function RecentArticles() {
   // ترتيب المقالات حسب التاريخ من الأحدث للأقدم وأخذ أول 10
