@@ -13,8 +13,7 @@ export const metadata = {
     apple: '/images/hero-truck.jpg',
   },
   verification: {
-    google:
-      'google-site-verification" content="1ctjCuEaI818e3wFn-vWfhQhi0-G26a7mBz3W0TNMnw',
+    google: '1ctjCuEaI818e3wFn-vWfhQhi0-G26a7mBz3W0TNMnw',
   },
 }
 
