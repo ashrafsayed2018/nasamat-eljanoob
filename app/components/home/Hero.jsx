@@ -19,11 +19,11 @@ export default function Hero() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           <h1 className="text-4xl lg:text-7xl font-extrabold mb-8 leading-tight">
-            طاقة تصلك ... <br />
-            <span className="text-blue-500">أينما كنت</span>
+            توريد ديزل ... <br />
+            <span className="text-blue-500">حسب الطلب</span>
           </h1>
           <p className="text-slate-200 text-xl mb-10 leading-relaxed">
-            نقدم حلولا لوجستية متكاملة لتوريد مواد الطاقة والوقود بأعلى معايير الأمان والجودة لجميع مناطق المملكة.
+            نسمات الجنوب للخدمات اللوجستية: شريكك الاستراتيجي لتوريد ونقل الديزل لكافة مناطق المملكة بسرعة وموثوقية عالية.
           </p>
           <div className="flex flex-wrap justify-center gap-6">
             <Link href="/contact" className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-xl font-bold text-lg transition shadow-lg hover:shadow-blue-500/30">
