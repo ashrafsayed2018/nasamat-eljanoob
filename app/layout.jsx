@@ -14,7 +14,7 @@ export const metadata = {
   },
   verification: {
     google:
-      'google-site-verification" content="1ctjCuEaI818e3wFn-vWfhQhi0-G26a7mBz3W0TNMnw', // استبدل هذا النص برمز التحقق الخاص بك من Google Search Console
+      'google-site-verification" content="1ctjCuEaI818e3wFn-vWfhQhi0-G26a7mBz3W0TNMnw',
   },
 }
 
