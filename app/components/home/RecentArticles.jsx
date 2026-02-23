@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { articles } from '../../data/blogData'
+import { articles } from '../../data/articles'
 
 export default function RecentArticles() {
   // ترتيب المقالات حسب التاريخ من الأحدث للأقدم وأخذ أول 10
@@ -35,9 +35,11 @@ export default function RecentArticles() {
                   fill
                   className='object-cover'
                 />
-                <div className='absolute top-4 right-4 bg-blue-600 text-white text-xs px-3 py-1 rounded-full'>
-                  {article.category.name}
-                </div>
+                {article.category?.name && (
+                  <div className='absolute top-4 right-4 bg-blue-600 text-white text-xs px-3 py-1 rounded-full'>
+                    {article.category.name}
+                  </div>
+                )}
               </div>
               <div className='p-6 flex-grow flex flex-col'>
                 <div className='flex items-center text-slate-500 text-xs mb-3 gap-4'>

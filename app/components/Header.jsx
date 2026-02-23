@@ -19,6 +19,7 @@ export default function Header() {
             <li><Link href="/about" className="hover:text-blue-400 transition duration-300">من نحن</Link></li>
             <li><Link href="/services" className="hover:text-blue-400 transition duration-300">خدماتنا</Link></li>
             <li><Link href="/portfolio" className="hover:text-blue-400 transition duration-300">مشاريعنا</Link></li>
+            <li><Link href="/blog" className="hover:text-blue-400 transition duration-300">المدونة</Link></li>
             <li><Link href="/contact" className="hover:text-blue-400 transition duration-300 bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700">اتصل بنا</Link></li>
           </ul>
         </nav>
@@ -49,6 +50,7 @@ export default function Header() {
             <li><Link href="/about" onClick={() => setIsOpen(false)} className="block hover:text-blue-400 transition duration-300">من نحن</Link></li>
             <li><Link href="/services" onClick={() => setIsOpen(false)} className="block hover:text-blue-400 transition duration-300">خدماتنا</Link></li>
             <li><Link href="/portfolio" onClick={() => setIsOpen(false)} className="block hover:text-blue-400 transition duration-300">مشاريعنا</Link></li>
+            <li><Link href="/blog" onClick={() => setIsOpen(false)} className="block hover:text-blue-400 transition duration-300">المدونة</Link></li>
             <li><Link href="/contact" onClick={() => setIsOpen(false)} className="block hover:text-blue-400 transition duration-300 bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700 mx-auto w-fit">اتصل بنا</Link></li>
           </ul>
         </div>

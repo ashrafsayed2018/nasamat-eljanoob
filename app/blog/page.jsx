@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { articles } from '../data/blogData'
+import { articles } from '../data/articles'
 
 export const metadata = {
   title: 'المدونة | نسمات الجنوب',
@@ -41,9 +41,11 @@ export default function BlogPage() {
                   fill
                   className='object-cover transform group-hover:scale-105 transition duration-500'
                 />
-                <div className='absolute top-4 right-4 bg-blue-600 text-white text-xs px-3 py-1 rounded-full'>
-                  {article.category.name}
-                </div>
+                {article.category?.name && (
+                  <div className='absolute top-4 right-4 bg-blue-600 text-white text-xs px-3 py-1 rounded-full'>
+                    {article.category.name}
+                  </div>
+                )}
               </div>
               <div className='p-8 flex-grow flex flex-col'>
                 <div className='flex items-center text-slate-500 text-sm mb-4 gap-4'>
@@ -85,14 +87,15 @@ export default function BlogPage() {
                     </svg>
                   </Link>
                   <div className='flex gap-2'>
-                    {article.tags.slice(0, 2).map((tag) => (
-                      <span
-                        key={tag.id}
-                        className='bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded'
-                      >
-                        {tag.name}
-                      </span>
-                    ))}
+                    {article.tags &&
+                      article.tags.slice(0, 2).map((tag) => (
+                        <span
+                          key={tag.id}
+                          className='bg-slate-100 text-slate-600 text-xs px-2 py-1 rounded'
+                        >
+                          {tag.name}
+                        </span>
+                      ))}
                   </div>
                 </div>
               </div>
