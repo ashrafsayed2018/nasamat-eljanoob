@@ -1,6 +1,6 @@
 import { articles } from './data/articles'
 
-const baseUrl = 'https://nasamat-eljanoob.com' // ضع هنا الدومين الحقيقي لموقعك
+const baseUrl = 'https://nasamat-eljanoob.vercel.app' // ضع هنا الدومين الحقيقي لموقعك
 
 export default function sitemap() {
   // Static routes (main pages)
