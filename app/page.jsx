@@ -1,3 +1,37 @@
+export const metadata = {
+  title: {
+    absolute:
+      'نسمات الجنوب – توريد مواد الطاقة والكهرباء في المملكة العربية السعودية',
+  },
+  description:
+    'شركة نسمات الجنوب التجاريه: شريكك الموثوق لتوريد الكابلات والمحولات وأنظمة الإنارة والمواد الكهربائية للمشاريع الصناعية والتجارية في السعودية.',
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title:
+      'نسمات الجنوب – توريد مواد الطاقة والكهرباء في المملكة العربية السعودية',
+    description:
+      'شركة نسمات الجنوب التجاريه: شريكك الموثوق لتوريد الكابلات والمحولات وأنظمة الإنارة والمواد الكهربائية في السعودية.',
+    url: '/',
+    images: [
+      {
+        url: '/images/hero-truck.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'نسمات الجنوب – توريد مواد الطاقة والكهرباء',
+      },
+    ],
+  },
+  twitter: {
+    title:
+      'نسمات الجنوب – توريد مواد الطاقة والكهرباء في المملكة العربية السعودية',
+    description:
+      'شركة نسمات الجنوب التجاريه: شريكك الموثوق لتوريد الكابلات والمحولات وأنظمة الإنارة في السعودية.',
+    images: ['/images/hero-truck.jpg'],
+  },
+}
+
 import Commitment from './components/home/Commitment'
 import ContactCTA from './components/home/ContactCTA'
 import FAQ from './components/home/FAQ'

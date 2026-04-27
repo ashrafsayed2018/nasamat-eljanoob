@@ -1,8 +1,32 @@
 import Image from 'next/image';
 
 export const metadata = {
-  title: 'اتصل بنا | نسمات الجنوب',
-  description: 'تواصل مع شركة نسمات الجنوب.',
+  title: 'تواصل معنا – طلب عرض سعر أو استفسار',
+  description:
+    'تواصل مع شركة نسمات الجنوب لطلب عروض الأسعار والاستفسارات. اتصل بنا على +966545829769 أو +966530305352 أو عبر البريد الإلكتروني. نخدم جميع مناطق المملكة العربية السعودية.',
+  alternates: {
+    canonical: '/contact',
+  },
+  openGraph: {
+    title: 'تواصل مع نسمات الجنوب – طلب عرض سعر',
+    description:
+      'تواصل مع شركة نسمات الجنوب لطلب عروض الأسعار والاستفسارات. نخدم جميع مناطق المملكة العربية السعودية.',
+    url: '/contact',
+    images: [
+      {
+        url: '/images/contact-side.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'تواصل مع نسمات الجنوب',
+      },
+    ],
+  },
+  twitter: {
+    title: 'تواصل مع نسمات الجنوب – طلب عرض سعر',
+    description:
+      'تواصل مع شركة نسمات الجنوب لطلب عروض الأسعار والاستفسارات في المملكة العربية السعودية.',
+    images: ['/images/contact-side.jpg'],
+  },
 }
 
 export default function Contact() {

@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { articles } from '../../data/articles'
 
+const baseUrl = 'https://nasamat-eljanoob.com'
+
 function findArticleBySlug(slug) {
   const decoded = decodeURIComponent(slug)
   return articles.find((a) => a.slug === decoded)
@@ -13,14 +15,44 @@ export function generateMetadata({ params }) {
 
   if (!article) {
     return {
-      title: 'المقال غير موجود | نسمات الجنوب',
+      title: 'المقال غير موجود',
       description: 'تعذر العثور على المقال المطلوب.',
     }
   }
 
+  const canonicalUrl = `/blog/${encodeURIComponent(article.slug)}`
+
   return {
-    title: `${article.title} | نسمات الجنوب`,
+    title: article.title,
     description: article.excerpt?.slice(0, 160) || '',
+    alternates: {
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      type: 'article',
+      title: article.title,
+      description: article.excerpt?.slice(0, 160) || '',
+      url: canonicalUrl,
+      publishedTime: article.created_at,
+      authors: ['نسمات الجنوب'],
+      section: article.category?.name || 'الطاقة',
+      tags: article.tags?.map((t) => t.name) || [],
+      images: article.image
+        ? [
+            {
+              url: article.image,
+              width: 1200,
+              height: 630,
+              alt: article.title,
+            },
+          ]
+        : [{ url: '/images/hero-truck.jpg', width: 1200, height: 630, alt: article.title }],
+    },
+    twitter: {
+      title: article.title,
+      description: article.excerpt?.slice(0, 160) || '',
+      images: [article.image || '/images/hero-truck.jpg'],
+    },
   }
 }
 
@@ -31,8 +63,71 @@ export default function ArticlePage({ params }) {
     notFound()
   }
 
+  const articleUrl = `${baseUrl}/blog/${encodeURIComponent(article.slug)}`
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: article.title,
+    description: article.excerpt?.slice(0, 160) || '',
+    image: article.image ? `${baseUrl}${article.image}` : `${baseUrl}/images/hero-truck.jpg`,
+    url: articleUrl,
+    datePublished: article.created_at,
+    dateModified: article.created_at,
+    author: {
+      '@type': 'Organization',
+      name: 'نسمات الجنوب',
+      url: baseUrl,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'نسمات الجنوب',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${baseUrl}/images/hero-truck.jpg`,
+      },
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': articleUrl,
+    },
+  }
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'الرئيسية',
+        item: baseUrl,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'المدونة',
+        item: `${baseUrl}/blog`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: article.title,
+        item: articleUrl,
+      },
+    ],
+  }
+
   return (
     <main className='min-h-screen bg-slate-50 pt-32 pb-16'>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className='container mx-auto px-4 max-w-5xl'>
         <div className='mb-10'>
           <Link

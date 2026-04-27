@@ -3,9 +3,32 @@ import Link from 'next/link'
 import { articles } from '../data/articles'
 
 export const metadata = {
-  title: 'المدونة | نسمات الجنوب',
+  title: 'المدونة والأخبار – رؤى في الطاقة والخدمات اللوجستية',
   description:
-    'أحدث المقالات والأخبار حول توريد الديزل والخدمات اللوجستية في المملكة.',
+    'أحدث المقالات والتحليلات حول قطاع الطاقة وتوريد مواد الكهرباء والخدمات اللوجستية في المملكة العربية السعودية من خبراء نسمات الجنوب.',
+  alternates: {
+    canonical: '/blog',
+  },
+  openGraph: {
+    title: 'المدونة والأخبار – نسمات الجنوب',
+    description:
+      'أحدث المقالات والتحليلات حول قطاع الطاقة وتوريد مواد الكهرباء في المملكة العربية السعودية.',
+    url: '/blog',
+    images: [
+      {
+        url: '/images/hero-truck.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'مدونة نسمات الجنوب',
+      },
+    ],
+  },
+  twitter: {
+    title: 'المدونة والأخبار – نسمات الجنوب',
+    description:
+      'أحدث المقالات والتحليلات حول قطاع الطاقة وتوريد مواد الكهرباء في المملكة العربية السعودية.',
+    images: ['/images/hero-truck.jpg'],
+  },
 }
 
 export default function BlogPage() {

@@ -1,11 +1,11 @@
 export default function robots() {
-  const baseUrl = 'https://nasamat-eljanoob.com'; // يرجى تحديث هذا الرابط بنطاق موقعك الفعلي
+  const baseUrl = 'https://nasamat-eljanoob.com'
 
   return {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/private/',
+      disallow: ['/private/', '/api/', '/_next/'],
     },
     sitemap: `${baseUrl}/sitemap.xml`,
   }

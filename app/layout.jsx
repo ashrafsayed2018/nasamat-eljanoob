@@ -3,10 +3,60 @@ import '../styles/globals.css'
 import FloatingButtons from './components/FloatingButtons'
 import Header from './components/Header'
 
+const baseUrl = 'https://nasamat-eljanoob.com'
+
 export const metadata = {
-  title: 'شركة نسمات الجنوب التجاريه لتوريد مواد الطاقه',
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: 'توريد مواد الطاقة والكهرباء في السعودية – نسمات الجنوب',
+    template: '%s | نسمات الجنوب',
+  },
   description:
-    'موقع شركة نسمات الجنوب التجاريه لتوريد مواد الطاقه وحلول الكهرباء في المملكة العربية السعودية.',
+    'شركة نسمات الجنوب التجاريه متخصصة في توريد مواد الطاقة والكهرباء والكابلات والمحولات وأنظمة الإنارة للمشاريع الصناعية والتجارية في المملكة العربية السعودية.',
+  keywords: [
+    'توريد مواد الطاقة',
+    'كابلات كهربائية',
+    'محولات',
+    'أنظمة إنارة',
+    'توريد الديزل',
+    'نسمات الجنوب',
+    'السعودية',
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'ar_SA',
+    url: baseUrl,
+    siteName: 'نسمات الجنوب',
+    title: 'توريد مواد الطاقة والكهرباء في السعودية – نسمات الجنوب',
+    description:
+      'شركة نسمات الجنوب التجاريه متخصصة في توريد مواد الطاقة والكهرباء والكابلات والمحولات وأنظمة الإنارة في المملكة العربية السعودية.',
+    images: [
+      {
+        url: '/images/hero-truck.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'نسمات الجنوب – توريد مواد الطاقة',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'توريد مواد الطاقة والكهرباء في السعودية – نسمات الجنوب',
+    description:
+      'شركة نسمات الجنوب التجاريه متخصصة في توريد مواد الطاقة والكهرباء في المملكة العربية السعودية.',
+    images: ['/images/hero-truck.jpg'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
   icons: {
     icon: '/images/hero-truck.jpg',
     shortcut: '/images/hero-truck.jpg',
@@ -17,10 +67,39 @@ export const metadata = {
   },
 }
 
+const organizationSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${baseUrl}/#organization`,
+  name: 'شركة نسمات الجنوب التجاريه',
+  alternateName: 'نسمات الجنوب',
+  url: baseUrl,
+  logo: `${baseUrl}/images/hero-truck.jpg`,
+  image: `${baseUrl}/images/hero-truck.jpg`,
+  description:
+    'شركة نسمات الجنوب التجاريه متخصصة في توريد مواد الطاقة والكهرباء والكابلات والمحولات وأنظمة الإنارة في المملكة العربية السعودية.',
+  telephone: ['+966545829769', '+966530305352'],
+  email: 'asdqlan2@gmail.com',
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'SA',
+    addressRegion: 'المنطقة الجنوبية',
+    addressLocality: 'المملكة العربية السعودية',
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Saudi Arabia',
+  },
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang='ar' dir='rtl' suppressHydrationWarning>
       <body className='min-h-screen flex flex-col bg-gray-50 text-gray-900 font-sans'>
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
         {/* Header / Navbar */}
         <Header />
 
